@@ -6,18 +6,15 @@
 
 import time
 from tools import benchmark
+import math
 
 
 @benchmark
 def fib(n):
     """
-    Нахождение n числа Фибоначи
-    :param n: номер
-    :return: искомое число
+    Числа Фибоначчи через золотое сечение
     """
-    if n == 1 or n == 2:
-        return 1
-    return fib(n - 1) + fib(n - 2)
+    return (((1 + math.sqrt(5)) / 2) ** n - ((1 - math.sqrt(5)) / 2) ** n) / math.sqrt(5)
 
 
 if __name__ == '__main__':

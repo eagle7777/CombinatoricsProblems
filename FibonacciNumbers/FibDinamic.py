@@ -10,14 +10,11 @@ from tools import benchmark
 
 @benchmark
 def fib(n):
-    """
-    Нахождение n числа Фибоначи
-    :param n: номер
-    :return: искомое число
-    """
-    if n == 1 or n == 2:
-        return 1
-    return fib(n - 1) + fib(n - 2)
+    a = 0
+    b = 1
+    for _ in range(n):
+        a, b = b, a + b
+    return a
 
 
 if __name__ == '__main__':
