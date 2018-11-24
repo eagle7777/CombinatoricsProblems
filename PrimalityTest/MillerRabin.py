@@ -40,17 +40,6 @@ def relativePrime(*args):
     return success
 
 
-def CarmichaelCheck(n):
-    def _helpCheck(b, k):
-        return pow(b, k-1, k) == 1  # возведение в степень по модулю b**(k-1) = 1 (mod k)
-    success = True
-    for i in range(1, n):
-        if relativePrime(i, n) and not _helpCheck(i, n):
-            success = False
-            break
-    return success
-
-
 def prepare(n):
     """
 
@@ -110,9 +99,6 @@ def MillerRabin(n, k=50):
     :param k: кол-во тестов
     :return: True - вероятно простое, False - составное
     """
-    # if CarmichaelCheck(n):
-    #     print('--', n)
-    #     return False
     if n in [2, 3]:
         return True
     if not n & 1:

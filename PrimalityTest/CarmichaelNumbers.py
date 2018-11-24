@@ -4,6 +4,23 @@
 # source: 
 # Created: 11/23/18
 
+import math
+
+
+def sieveOfEratosthenes(n):
+    """
+    Проверка на простоту
+    Решето Эратосфена
+    :param n: число
+    :return: True/False
+    """
+    succees = True
+    for i in range(1, int(math.sqrt(n))+1):
+        if not relativePrime(i, n):
+            succees = False
+            break
+    return succees
+
 
 def gcd(a, b):
     """
@@ -44,7 +61,10 @@ def CarmichaelCheck(n):
     :return: True/False
     """
     def _helpCheck(b, n):
+        """тест Ферма"""
         return pow(b, n-1, n) == 1  # возведение в степень по модулю b**(n-1) = 1 (mod n)
+    if sieveOfEratosthenes(n):
+        return False
     success = True
     for i in range(1, n):
         if relativePrime(i, n) and not _helpCheck(i, n):
@@ -54,4 +74,5 @@ def CarmichaelCheck(n):
 
 
 if __name__ == '__main__':
-    print(CarmichaelCheck())
+    # test
+    print(CarmichaelCheck(561))
