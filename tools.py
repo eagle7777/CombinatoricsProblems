@@ -9,7 +9,7 @@ import time
 
 def benchmark(f):
     """
-    Декоратор @benchmark для вычисления времени работы функци f
+    Декоратор @benchmark для вычисления времени работы функции f
     """
     def _benchmark(*args, **kw):
         t = time.clock()
