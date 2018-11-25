@@ -6,6 +6,8 @@
 
 import random
 import time
+from PrimalityTest import CarmichaelNumbers
+from tools import benchmark
 
 
 def gcd(a, b):
@@ -90,6 +92,7 @@ def check(a, s, t, n):
     return x == n - 1
 
 
+@benchmark
 def MillerRabin(n, k=50):
     """
 
@@ -99,9 +102,11 @@ def MillerRabin(n, k=50):
     :param k: кол-во тестов
     :return: True - вероятно простое, False - составное
     """
-    if n in [2, 3]:
+    if n in [1, 2, 3]:
         return True
     if not n & 1:
+        return False
+    if CarmichaelNumbers.CarmichaelCheck(n):  # проверка на число Кармайкла
         return False
     s, t = prepare(n-1)
     for i in range(k):
@@ -113,16 +118,7 @@ def MillerRabin(n, k=50):
 
 if __name__ == '__main__':
     # # test
-    # with open('test.txt', 'a') as f:
-    #     for j in range(2, 10000):
-    #         f.write(f'n = {j}, Prime: {MillerRabin(j)}\n')
-    c = 0
-    for i in range(2, 1000):
-        t_start = time.time()
-        if MillerRabin(i):
-            c += 1
-            print(i)
-        t_end = time.time()
-        print('time:', t_end-t_start)
-        del t_start, t_end
-    print(c)
+
+    n = 2000
+    for i in range(1, n):
+        print(f'{i}, is simple - {MillerRabin(i)}\n')
