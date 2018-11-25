@@ -6,12 +6,14 @@
 
 
 import time
+from tools import benchmark
 
 
 def LCS(x: str, y:str):
     ...
 
 
+# @benchmark
 def c(i: int, j: int, x: str, y: str):
     if (i == 0 or j == 0) and x[i] == y[j]:
         return 1
