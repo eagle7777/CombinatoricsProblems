@@ -45,7 +45,7 @@ def relativePrime(*args):
 def prepare(n):
     """
 
-    Представить число n в виду 2**s*t, t = 2*k+1 (нечетно)
+    Представить число n в виде 2**s*t, t = 2*k+1 (нечетно)
 
     :param n:
     :return: (s, t)
