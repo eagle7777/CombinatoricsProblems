@@ -1,7 +1,6 @@
 #!/usr/bin/env python
-# coding:utf-8
+# coding: utf-8
 # Author: Valentyn Kofanov (knu)
-# source: 
 # Created: 11/23/18
 
 import math
