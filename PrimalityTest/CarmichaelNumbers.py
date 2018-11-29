@@ -74,4 +74,8 @@ def CarmichaelCheck(n):
 
 if __name__ == '__main__':
     # test
-    print(CarmichaelCheck(561))
+    ans = []
+    for i in range(1, 9999):
+        if CarmichaelCheck(i):
+            ans.append(i)
+    print(ans)
