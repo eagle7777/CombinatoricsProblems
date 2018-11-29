@@ -10,6 +10,13 @@ from tools import benchmark
 
 @benchmark
 def LCS(x: str, y: str, showMatrix=False):
+    """
+    нахождение длины максимального вхождения строки y в строку x
+    :param x:
+    :param y:
+    :param showMatrix: показывает матрицу (решение) если True
+    :return:
+    """
     m = findMatrix(x, y)
     if showMatrix:
         for row in m:
@@ -19,6 +26,14 @@ def LCS(x: str, y: str, showMatrix=False):
 
 
 def c(i: int, j: int, x: str, y: str):
+    """
+    вспомогательная рекурсивная функция
+    :param i:
+    :param j:
+    :param x:
+    :param y:
+    :return:
+    """
     if (i == 0 or j == 0) and x[i] == y[j]:
         return 1
     if i == 0 or j == 0:
@@ -30,6 +45,12 @@ def c(i: int, j: int, x: str, y: str):
 
 
 def findMatrix(x: str, y: str):
+    """
+    нахождение матрицы решения
+    :param x:
+    :param y:
+    :return:
+    """
     l1 = len(x)
     l2 = len(y)
     m = [[[] for _ in range(l2)] for _ in range(l1)]  # создаем пустую матрицу
