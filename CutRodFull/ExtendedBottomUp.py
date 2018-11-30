@@ -3,7 +3,10 @@
 # Author: Valentyn Kofanov (knu)
 # Created: 11/30/18
 
+from tools import benchmark
 
+
+@benchmark
 def ExtendedBottomUpCutRod(p: list, n: int, price=0):
     """
     по заданным отрезку длине стержня и стоимости
