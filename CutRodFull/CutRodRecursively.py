@@ -9,8 +9,10 @@
 """
 
 import sys
+from tools import memo
 
 
+@memo
 def CutRod(p: list, n: int) -> int:
     """
     по заданным отрезку и длину стержня находит максимальную прибыль
@@ -22,7 +24,7 @@ def CutRod(p: list, n: int) -> int:
         return 0
     q = - sys.maxsize
     for i in range(n):
-        q = max(q, p[i] + CutRod(p, n - i - 1))
+        q = max(q, p[i] + CutRod(p, n - i - 1))  # разбиваем задачи на подзадачи (рекурсивно)
     return q
 
 
