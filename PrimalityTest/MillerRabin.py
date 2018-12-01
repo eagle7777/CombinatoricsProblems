@@ -104,7 +104,7 @@ def MillerRabin(n, k=50):
     """
     if n in [1, 2, 3]:
         return True
-    if not n & 1:
+    if not n & 1:  # проверка на парность
         return False
     if CarmichaelNumbers.CarmichaelCheck(n):  # проверка на число Кармайкла
         return False
