@@ -5,11 +5,10 @@
 # Created: 11/24/18
 
 import time
-from tools import benchmark, memo
+from tools import memo
 
 
 @memo
-@benchmark
 def fib(n):
     """
     Нахождение n числа Фибоначи
