@@ -5,9 +5,10 @@
 # Created: 11/24/18
 
 import time
-from tools import benchmark
+from tools import benchmark, memo
 
 
+@memo
 @benchmark
 def fib(n):
     """
