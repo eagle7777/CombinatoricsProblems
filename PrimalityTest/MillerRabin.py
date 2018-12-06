@@ -117,8 +117,7 @@ def MillerRabin(n, k=50):
 
 
 if __name__ == '__main__':
-    # # test
-
+    # test
     n = 2000
     for i in range(1, n):
         print(f'{i}, is simple - {MillerRabin(i)}\n')
