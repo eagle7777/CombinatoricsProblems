@@ -3,6 +3,8 @@
 # Author: Valentyn Kofanov (knu)
 # Created: 12/6/18
 
+import time
+
 
 def RecursiveActiveSelector(start, finish, k, n):
     """
@@ -24,6 +26,9 @@ def RecursiveActiveSelector(start, finish, k, n):
 
 if __name__ == '__main__':
     # test
+    t_start = time.time()
     s = [1, 3, 0, 5, 8, 5]
     f = [2, 4, 6, 7, 9, 9]
     print(RecursiveActiveSelector(s, f, 1, 5))
+    t_end = time.time()
+    print(t_end-t_start)

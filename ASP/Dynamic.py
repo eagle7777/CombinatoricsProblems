@@ -3,6 +3,8 @@
 # Author: Valentyn Kofanov (knu)
 # Created: 12/7/18
 
+from tools import benchmark
+
 
 def get_subset(s, f, i, j):
     if i == 0:
@@ -17,6 +19,8 @@ def get_subset(s, f, i, j):
     return res
 
 
+
+@benchmark
 def ASPDynamic(s, f, v):
     """
     Динамический алгоритм
@@ -55,13 +59,11 @@ def get_res(indxs, i, j):
 
 
 if __name__ == '__main__':
-    from random import randrange as rand
-    # s = [1, 3, 0, 5, 3, 5]
-    # f = [4, 5, 6, 7, 9, 9]
-    # v = [rand(1, 30) for i in range(len(s))]
     s = [0, 1, 1, 1, 2, 3, 4, 5, 5, 5, 6]
     f = [2, 3, 3, 3, 4, 5, 6, 7, 7, 7, 8]
     v = [3, 4, 4, 4, 4, 2, 4, 4, 4, 4, 3]
-    print(v, end='\n\n')
     r1, r2 = ASPDynamic(s, f, v)
+    # print(r1)
+    # print(r2)
     print(get_res(r2, 0, len(s)-1))
+
