@@ -14,22 +14,27 @@
 """
 
 
-def search_min(tr, vizited):  # 1 место для оптимизации
+def search_min(tr, vizited):
     index2 = None
     min = max(tr)
     for ind in vizited:
         for index, elem in enumerate(tr[ind]):
             if 0 < elem < min and index not in vizited:
                 min = elem  # веса путей
-                index2 = index  # индекс города
+                index2 = index  # индекс вершины
     return [min, index2]
 
 
 def PrimAlgo(matr):
-    toVisit = [i for i in range(1, len(matr))]  # города кроме начального(0)
+    """
+    Алгоритм Прима
+    :param matr: матрица смежности графа
+    :return:
+    """
+    toVisit = [i for i in range(1, len(matr))]  # вершины кроме начальной(0)
     vizited = [0]
-    result = [0]  # начнем с минска
-    for index in toVisit:
+    result = [0]  # начнем с первого
+    for _ in toVisit:
         weight, ind = search_min(matr, vizited)
         result.append(weight)  # в результат будут заноситься веса
         vizited.append(ind)  # содержит карту пути
