@@ -12,6 +12,8 @@
 поддеревьям, то эти поддеревья объединяются, а ребро добавляется к ответу. По окончании перебора всех рёбер
 все вершины окажутся принадлежащими одному поддереву, и ответ найден.
 """
+from tools import benchmark
+
 
 parent = {}  # словарь вершмни
 rank = {}  # словарь весов
@@ -51,6 +53,7 @@ def union(vertice1, vertice2):
             rank[root2] += 1
 
 
+@benchmark
 def kruskal(graph):
     """
     алгоритм Крускала
@@ -99,4 +102,14 @@ if __name__ == '__main__':
         'vertices': ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
         'edges': set(l)
     }
+    print('MIN')
+    print(kruskal(graph))
+    l2 = []
+    for i in l:
+        l2.append((-i[0], i[1], i[2]))
+    graph = {
+        'vertices': ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
+        'edges': set(l2)
+    }
+    print('MAX')
     print(kruskal(graph))
